@@ -2,7 +2,7 @@ package name.bastkowski.sbttricks.integrationtesting
 
 trait UserRepositoryComponentImpl extends UserRepositoryComponent {
 
-  class UserRepositoryImpl extends UserRepository {
+  val userRepository = new UserRepository {
 
     def authenticate(username: String, password: String): User = {
       val user = User(username, password)
