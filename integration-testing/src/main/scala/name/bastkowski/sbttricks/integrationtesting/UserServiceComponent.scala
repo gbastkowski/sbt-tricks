@@ -1,8 +1,5 @@
 package name.bastkowski.sbttricks.integrationtesting
 
-trait UserServiceComponent { this:
-  UserRepositoryComponent ⇒
-
+trait UserServiceComponent {
   val userService: UserService
-
 }

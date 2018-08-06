@@ -4,6 +4,6 @@ object ComponentRegistry
     extends UserServiceComponent
     with UserRepositoryComponent {
 
-  lazy val userService    = new UserService(userRepository)
-  lazy val userRepository = new UserRepository
+  lazy val userService    = new UserServiceImpl(userRepository)
+  lazy val userRepository = new UserRepositoryImpl
 }

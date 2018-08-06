@@ -1,11 +1,11 @@
 package name.bastkowski.sbttricks.integrationtesting
 
-class UserService(repository: UserRepository) {
+trait UserService {
 
-  def authenticate(username: String, password: String): User = repository.authenticate(username, password)
+  def authenticate(username: String, password: String): User
 
-  def create(username: String, password: String): Unit = repository.create(User(username, password))
+  def create(username: String, password: String): Unit
 
-  def delete(user: User): Unit = repository.delete(user)
+  def delete(user: User): Unit
 
 }
