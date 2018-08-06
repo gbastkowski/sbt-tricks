@@ -2,3 +2,5 @@
 This is an implementation of what's been drafted out at
 https://blog.byjean.eu/2015/07/10/painless-release-with-sbt.html
 
+There is actually an interesting question:
+Creating a git tag requires a new binary artifact to be built.
