@@ -1,0 +1,4 @@
+* Painless Release
+This is an implementation of what's been drafted out at
+https://blog.byjean.eu/2015/07/10/painless-release-with-sbt.html
+
