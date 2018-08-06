@@ -5,7 +5,7 @@ trait UserServiceComponent { this: UserRepositoryComponent ⇒
 
   trait UserService {
 
-    def authenticate(username: String, password: String): User
+    def authenticate(username: String, password: String): Option[User]
 
     def create(username: String, password: String): Unit
 

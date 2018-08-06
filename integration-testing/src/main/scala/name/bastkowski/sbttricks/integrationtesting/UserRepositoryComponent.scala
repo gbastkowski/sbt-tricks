@@ -4,10 +4,10 @@ trait UserRepositoryComponent {
   val userRepository: UserRepository
 
   trait UserRepository {
-    def authenticate(username: String, password: String): User
+    def authenticate(username: String, password: String): Option[User]
 
-    def create(user: User): Unit
+    def create(user: User): User
 
-    def delete(user: User): Unit
+    def delete(user: User): Boolean
   }
 }

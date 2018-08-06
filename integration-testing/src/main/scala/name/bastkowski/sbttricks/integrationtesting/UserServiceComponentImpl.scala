@@ -5,7 +5,9 @@ trait UserServiceComponentImpl extends UserServiceComponent
 {
   val userService = new UserService {
 
-    def authenticate(username: String, password: String): User = userRepository.authenticate(username, password)
+    def authenticate(username: String, password: String): Option[User] = {
+      userRepository.authenticate(username, password)
+    }
 
     def create(username: String, password: String): Unit = userRepository.create(User(username, password))
 
