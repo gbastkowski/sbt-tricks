@@ -6,8 +6,8 @@ trait UserRepositoryComponent {
   trait UserRepository {
     def authenticate(username: String, password: String): Option[User]
 
-    def create(user: User): User
+    def create(user: User): Option[User]
 
-    def delete(user: User): Boolean
+    def delete(user: User): Option[User]
   }
 }

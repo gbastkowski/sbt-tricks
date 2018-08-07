@@ -1,25 +1,22 @@
 package name.bastkowski.sbttricks.integrationtesting
 
+import scala.collection.mutable
+import scalaz.Reader
+
 trait UserRepositoryComponentImpl extends UserRepositoryComponent {
 
   val userRepository = new UserRepository {
 
-    def authenticate(username: String, password: String): Option[User] = {
-      val user = User(username, password)
-      println(s"authenticating $user")
-      Some(user)
-    }
+    private[this] val users = mutable.Map[String, User]()
 
-    def create(user: User): User = {
-      println(s"creating user:$user")
-      user
-    }
+    def authenticate(username: String, password: String): Option[User] = users.get(username)
 
-    def delete(user: User): Boolean = {
-      println(s"deleting user:$user")
-      true
-    }
+    def create(user: User): Option[User] = users.put(user.firstName, user)
 
+    def delete(user: User): Option[User] = users.remove(user.firstName)
+
+    def authenticate2(username: String, password: String) =
+      Reader((userRepository: UserRepository) ⇒ userRepository.authenticate(username, password))
   }
 
 }

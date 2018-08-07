@@ -1,5 +1,5 @@
 package name.bastkowski.sbttricks.integrationtesting
 
-object ComponentRegistry
-  extends UserServiceComponentImpl
-  with UserRepositoryComponentImpl
+object ComponentRegistry extends UserRepositoryComponentImpl {
+  val userService = new UserService with UserRepositoryComponentImpl
+}
